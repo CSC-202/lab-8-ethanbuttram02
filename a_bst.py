@@ -81,7 +81,7 @@ def search(root: Node, value: int) -> Node:
         return root
     # recursive step
     else:
-        if root.left == None: # TODO
+        if value > root.value: # TODO
             return search(root.right, value)
         else:
             return search(root.left, value)
@@ -89,15 +89,13 @@ def search(root: Node, value: int) -> Node:
 
 # NOT given to students
 def insert(root: Node, value: int) -> Node:
-    if False: # TODO
-        return None # TODO
+    if root is None:
+        return Node(value)
+
+    if value < root.value:
+        root.left = insert(root.left, value)
     else:
-        if False: # TODO
-            return None # TODO
-        elif False: # TODO
-            root.right = None # TODO
-        else:
-            root.left = None # TODO
+        root.right = insert(root.right, value)
     return root
 
 
